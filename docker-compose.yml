@@ -25,7 +25,7 @@ services:
         max-size: "10m"
         max-file: "10"
     restart: unless-stopped
-    command: postgres -c "shared_buffers=2048MB" -c "shared_preload_libraries=pg_amqp.so"
+    command: postgres -c "shared_buffers=4096MB" -c "shared_preload_libraries=pg_amqp.so"
     env_file:
       - ./default/postgres.env
     shm_size: "2GB"
@@ -92,7 +92,7 @@ services:
         max-file: "10"
     restart: unless-stopped
     environment:
-      - SOLR_HEAP=2g
+      - SOLR_HEAP=4g
       - LOG4J_FORMAT_MSG_NO_LOOKUPS=true
     expose:
       - "8983"

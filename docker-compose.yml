@@ -1,4 +1,4 @@
-version: '3.1'
+# version: '3.1'
 
 # Description: Default compose file, with host port for musicbrainz
 
@@ -32,10 +32,12 @@ services:
       options:
         max-size: "50m"
         max-file: "50"
-    ports:
-      - "${MUSICBRAINZ_WEB_SERVER_PORT}:5000"
+    # ports:
+    #   - "${MUSICBRAINZ_WEB_SERVER_PORT}:5000"
     networks:
       - npm_net
+    expose:
+      - "5000"
     volumes:
       - /docker/musicbrainz/dbdump:/media/dbdump
       - /docker/musicbrainz/searchdump:/media/searchdump

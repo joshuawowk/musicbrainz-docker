@@ -32,6 +32,8 @@ services:
       options:
         max-size: "50m"
         max-file: "50"
+    ports:
+      - "${MUSICBRAINZ_WEB_SERVER_PORT}:5000"
     networks:
       - npm_net
     volumes:
